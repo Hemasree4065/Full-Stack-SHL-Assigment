@@ -28,3 +28,9 @@
     "nodemon": "^3.0.1"
   }
 }
+{
+  "scripts": {
+    "build": "vite build"
+  }
+}
+
