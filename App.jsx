@@ -171,3 +171,51 @@ export default function App() {
     </div>
   );
 }
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/recommend`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query })
+      })
+      const data = await res.json()
+      setResults(data.recommendations || [])
+    } catch (err) {
+      console.error(err)
+    }
+    setLoading(false)
+  }
+
+  return (
+    <div className="app">
+      <h1>SHL Assessment Recommender</h1>
+      <textarea
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        placeholder="Enter job description..."
+        rows={5}
+      />
+      <button onClick={handleSubmit} disabled={loading}>
+        {loading ? 'Loading...' : 'Get Recommendations'}
+      </button>
+      {results.map((r, i) => (
+        <div key={i} className="card">
+          <a href={r.url} target="_blank">{r.assessment_name}</a>
+          <span> — Score: {r.relevance_score}</span>
+          <p>{r.reason}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default App
