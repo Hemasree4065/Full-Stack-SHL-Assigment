@@ -1,33 +1,19 @@
 {
-  "name": "shl-recommendation-api",
+  "name": "shl-frontend",
   "version": "1.0.0",
   "type": "module",
-  "description": "SHL Assessment Recommendation System API",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "dev": "vite",
     "build": "vite build",
-    "scrape": "node scripts/scrapeSHL.js",
-    "generate-data": "node scripts/generateSampleData.js && node scripts/populateDatabase.js",
-    "evaluate": "node scripts/evaluate.js",
-    "predictions": "node scripts/generatePredictions.js"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
     "axios": "^1.6.0",
-    "cheerio": "^1.0.0-rc.12",
-    "dotenv": "^16.3.1",
-    "@google/generative-ai": "^0.1.3",
-    "js-sha256": "^0.11.0",
-    "sqlite3": "^5.1.6",
-    "csv-writer": "^1.6.0",
-    "csv-parser": "^3.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0"
   }
 }
-
-
