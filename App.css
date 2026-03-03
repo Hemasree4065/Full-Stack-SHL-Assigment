@@ -330,3 +330,9 @@ td {
     padding: 0.75rem;
   }
 }
+.app { max-width: 800px; margin: 40px auto; padding: 20px; font-family: sans-serif; }
+h1 { margin-bottom: 20px; }
+textarea { width: 100%; padding: 10px; font-size: 16px; }
+button { margin-top: 10px; padding: 10px 20px; background: #0070f3; color: white; border: none; cursor: pointer; border-radius: 4px; }
+.card { margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; }
+.card a { font-weight: bold; font-size: 18px; }
